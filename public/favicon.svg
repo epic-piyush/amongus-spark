@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Backpack -->
+  <rect x="8" y="24" width="14" height="26" rx="7" fill="#B82828" stroke="#080B14" stroke-width="3" />
+  <rect x="10" y="26" width="10" height="22" rx="5" fill="#F45858" />
+  <!-- Body -->
+  <path d="M20 38V22C20 10 46 10 46 22V50C46 53 44 55 41 55C38 55 36 53 36 50V46C36 45 34 45 34 46V50C34 53 32 55 29 55C26 55 24 53 24 50V38Z" fill="#F45858" stroke="#080B14" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- Visor -->
+  <rect x="30" y="19" width="24" height="15" rx="7.5" fill="#080B14" stroke="#080B14" stroke-width="2.5" />
+  <rect x="31" y="20" width="22" height="13" rx="6.5" fill="#67C9F5" />
+  <!-- Glare -->
+  <ellipse cx="40" cy="23" rx="7" ry="2.5" transform="rotate(-10 40 23)" fill="#FFFFFF" opacity="0.85" />
+</svg>
