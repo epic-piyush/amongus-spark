@@ -41,7 +41,8 @@ amongus-spark/
 │   │   ├── MissionCards.jsx      # 3 distinct mission cards with hover micro-interactions
 │   │   ├── EventSchedule.jsx     # Vertical timeline with checkpoint markers & location nodes
 │   │   ├── ParticipationRules.jsx# Code of conduct cards & accessible FAQ accordion
-│   │   ├── RegistrationForm.jsx  # Spaceship terminal form with validation & boarding pass generator
+│   │   ├── RecruitmentSection.jsx# On-page Sector 07 airlock terminal gateway
+│   │   ├── RegistrationModal.jsx # Full-screen backdrop-blurred recruitment modal popup
 │   │   ├── CrewmateIllustration.jsx # Parametric SVG Crewmate with custom color palettes
 │   │   ├── Starfield.jsx         # Lightweight ambient canvas starfield (reduced-motion safe)
 │   │   └── Footer.jsx            # Branding, club placeholders, back-to-top & trademark disclaimer
