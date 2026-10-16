@@ -3,7 +3,7 @@ import { Calendar, MapPin, Users, ArrowRight, ShieldAlert, Compass } from 'lucid
 import { EVENT_CONFIG } from '../data/eventConfig';
 import { CrewmateIllustration } from './CrewmateIllustration';
 
-export const Hero = () => {
+export const Hero = ({ onOpenRegister }) => {
   // Crewmate suit color preview toggle
   const crewColors = [
     { name: 'Red', hex: '#F45858', shadow: '#B82828' },
@@ -91,14 +91,14 @@ export const Hero = () => {
 
           {/* Dual Action Buttons */}
           <div className="hero-actions">
-            <a
-              href="#register"
-              onClick={(e) => scrollToSection(e, 'register')}
+            <button
+              type="button"
+              onClick={onOpenRegister}
               className="btn btn-primary btn-lg"
             >
               <span>JOIN THE CREW</span>
               <ArrowRight size={18} aria-hidden="true" />
-            </a>
+            </button>
 
             <a
               href="#briefing"

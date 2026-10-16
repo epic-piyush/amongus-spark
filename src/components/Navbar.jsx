@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Radio, UserPlus } from 'lucide-react';
 import { EVENT_CONFIG } from '../data/eventConfig';
 
-export const Navbar = () => {
+export const Navbar = ({ onOpenRegister }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -20,15 +20,27 @@ export const Navbar = () => {
     { label: 'Missions', href: '#missions' },
     { label: 'Schedule', href: '#schedule' },
     { label: 'Rules', href: '#rules' },
-    { label: 'Register', href: '#register' }
+    { label: 'Register', href: '#register', isModalTrigger: true }
   ];
 
-  const handleNavClick = (e, href) => {
+  const handleNavClick = (e, link) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    const target = document.querySelector(href);
+    if (link.isModalTrigger && onOpenRegister) {
+      onOpenRegister();
+      return;
+    }
+    const target = document.querySelector(link.href);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handleCtaClick = (e) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    if (onOpenRegister) {
+      onOpenRegister();
     }
   };
 
@@ -38,7 +50,10 @@ export const Navbar = () => {
         {/* Event Logo */}
         <a
           href="#hero"
-          onClick={(e) => handleNavClick(e, '#hero')}
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           className="brand-logo"
           aria-label={`${EVENT_CONFIG.title} Home`}
         >
@@ -66,7 +81,7 @@ export const Navbar = () => {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
+                  onClick={(e) => handleNavClick(e, link)}
                   className="nav-link"
                 >
                   {link.label}
@@ -78,14 +93,14 @@ export const Navbar = () => {
 
         {/* CTA Button */}
         <div className="nav-action-wrapper desktop-only">
-          <a
-            href="#register"
-            onClick={(e) => handleNavClick(e, '#register')}
+          <button
+            type="button"
+            onClick={handleCtaClick}
             className="btn btn-primary btn-sm nav-cta-btn"
           >
             <UserPlus size={16} aria-hidden="true" />
             <span>Join the Crew</span>
-          </a>
+          </button>
         </div>
 
         {/* Mobile Menu Toggle Button */}
@@ -118,7 +133,7 @@ export const Navbar = () => {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
+                  onClick={(e) => handleNavClick(e, link)}
                   className="mobile-nav-link"
                 >
                   {link.label}
@@ -128,14 +143,14 @@ export const Navbar = () => {
           </ul>
 
           <div className="mobile-drawer-cta">
-            <a
-              href="#register"
-              onClick={(e) => handleNavClick(e, '#register')}
+            <button
+              type="button"
+              onClick={handleCtaClick}
               className="btn btn-primary btn-block"
             >
               <UserPlus size={18} aria-hidden="true" />
               <span>Join the Crew Now</span>
-            </a>
+            </button>
           </div>
 
           <p className="mobile-drawer-footer">

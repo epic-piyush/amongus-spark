@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Starfield } from './components/Starfield';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -7,23 +7,42 @@ import { EventBriefing } from './components/EventBriefing';
 import { MissionCards } from './components/MissionCards';
 import { EventSchedule } from './components/EventSchedule';
 import { ParticipationRules } from './components/ParticipationRules';
-import { RegistrationForm } from './components/RegistrationForm';
+import { RecruitmentSection } from './components/RecruitmentSection';
+import { RegistrationModal } from './components/RegistrationModal';
 import { Footer } from './components/Footer';
 import './App.css';
 
 function App() {
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+
+  // Auto-open modal if URL hash is #register
+  useEffect(() => {
+    const checkHash = () => {
+      if (window.location.hash === '#register') {
+        setIsRegisterOpen(true);
+      }
+    };
+
+    checkHash();
+    window.addEventListener('hashchange', checkHash);
+    return () => window.removeEventListener('hashchange', checkHash);
+  }, []);
+
+  const openRegister = () => setIsRegisterOpen(true);
+  const closeRegister = () => setIsRegisterOpen(false);
+
   return (
     <div className="space-app-root">
       {/* Ambient Canvas Starfield Background */}
       <Starfield />
 
       {/* Sticky Header Navigation */}
-      <Navbar />
+      <Navbar onOpenRegister={openRegister} />
 
       {/* Main Content Sections */}
       <main id="main-content" className="main-content-flow">
         {/* Section 1: Hero */}
-        <Hero />
+        <Hero onOpenRegister={openRegister} />
 
         {/* Section 2: Interactive Emergency Alert Bar */}
         <EmergencyBanner />
@@ -40,12 +59,15 @@ function App() {
         {/* Section 6: Participation Rules & FAQs */}
         <ParticipationRules />
 
-        {/* Section 7: Recruitment Terminal (Registration) */}
-        <RegistrationForm />
+        {/* Section 7: Recruitment Terminal Gateway */}
+        <RecruitmentSection onOpenModal={openRegister} />
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenRegister={openRegister} />
+
+      {/* Blurred Backdrop Recruitment Modal */}
+      <RegistrationModal isOpen={isRegisterOpen} onClose={closeRegister} />
     </div>
   );
 }

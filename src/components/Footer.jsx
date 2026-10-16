@@ -4,7 +4,7 @@ import { EVENT_CONFIG } from '../data/eventConfig';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
-export const Footer = () => {
+export const Footer = ({ onOpenRegister }) => {
   const scrollToTop = (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -66,7 +66,15 @@ export const Footer = () => {
               <li><a href="#missions">Objectives</a></li>
               <li><a href="#schedule">Flight Timeline</a></li>
               <li><a href="#rules">Participation Code</a></li>
-              <li><a href="#register">Recruitment Terminal</a></li>
+              <li>
+                <button
+                  type="button"
+                  onClick={onOpenRegister}
+                  className="footer-nav-btn-link"
+                >
+                  Recruitment Terminal
+                </button>
+              </li>
             </ul>
           </div>
 
