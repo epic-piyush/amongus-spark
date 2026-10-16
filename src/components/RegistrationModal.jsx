@@ -185,7 +185,8 @@ export const RegistrationModal = ({ isOpen, onClose }) => {
             <span className="terminal-led blue"></span>
           </div>
           <div className="terminal-hud-label" id="modal-recruitment-title">
-            STATION: SEC-07 // RECRUITMENT_GATEWAY_V2.1
+            <span className="desktop-only-inline">STATION: SEC-07 // RECRUITMENT_GATEWAY_V2.1</span>
+            <span className="mobile-only-inline">SEC-07 // RECRUIT TERMINAL</span>
           </div>
           <button
             type="button"

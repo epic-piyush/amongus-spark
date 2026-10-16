@@ -2654,13 +2654,28 @@
   }
 }
 
+/* Desktop and Mobile text inline helpers */
+.desktop-only-inline {
+  display: inline;
+}
+
+.mobile-only-inline {
+  display: none;
+}
+
 @media (max-width: 768px) {
-  .desktop-only {
+  .desktop-only,
+  .desktop-nav,
+  .desktop-only-inline {
     display: none !important;
   }
 
   .mobile-only {
     display: flex !important;
+  }
+
+  .mobile-only-inline {
+    display: inline !important;
   }
 
   .mobile-drawer {
@@ -2702,7 +2717,7 @@
   .mobile-menu-toggle {
     min-width: 44px;
     min-height: 44px;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
   }
@@ -3032,6 +3047,21 @@
 
   .stat-val {
     font-size: 0.9rem;
+  }
+
+  .airlock-heading {
+    font-size: 1.35rem;
+    line-height: 1.25;
+  }
+
+  .airlock-text {
+    font-size: 0.9rem;
+  }
+
+  .launch-terminal-btn {
+    font-size: 0.88rem;
+    padding: 0.85rem 1rem;
+    gap: 0.5rem;
   }
 
   .modal-backdrop-overlay {

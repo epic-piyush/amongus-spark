@@ -28,7 +28,8 @@ export const RecruitmentSection = ({ onOpenModal }) => {
             </div>
             <div className="airlock-status-badge">
               <span className="status-dot-pulse"></span>
-              <span>TERMINAL STATUS: READY FOR DISPATCH</span>
+              <span className="desktop-only-inline">TERMINAL STATUS: READY FOR DISPATCH</span>
+              <span className="mobile-only-inline">STATUS: READY FOR DISPATCH</span>
             </div>
           </div>
 

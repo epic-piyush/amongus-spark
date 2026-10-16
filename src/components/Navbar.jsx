@@ -87,8 +87,8 @@ export const Navbar = ({ onOpenRegister }) => {
             <span className="status-pill-text">RECRUITMENT ACTIVE</span>
           </div>
 
-          {/* Desktop Nav Links */}
-          <nav className="desktop-nav" aria-label="Main Navigation">
+          {/* Desktop Nav Links (Hidden on mobile) */}
+          <nav className="desktop-nav desktop-only" aria-label="Main Navigation">
             <ul className="nav-link-list">
               {navLinks.map((link) => (
                 <li key={link.href}>
