@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Starfield } from './components/Starfield';
+import { SpaceshipViewport } from './components/SpaceshipViewport';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { EmergencyBanner } from './components/EmergencyBanner';
@@ -33,8 +33,8 @@ function App() {
 
   return (
     <div className="space-app-root">
-      {/* Ambient Canvas Starfield Background */}
-      <Starfield />
+      {/* Spaceship Observation Deck Viewport Background */}
+      <SpaceshipViewport />
 
       {/* Sticky Header Navigation */}
       <Navbar onOpenRegister={openRegister} />

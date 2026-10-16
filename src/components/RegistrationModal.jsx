@@ -462,11 +462,6 @@ export const RegistrationModal = ({ isOpen, onClose }) => {
                   </div>
 
                   <div className="pass-meta-item">
-                    <span className="pass-meta-label">REPORT LOCATION:</span>
-                    <span className="pass-meta-val">{EVENT_CONFIG.venue}</span>
-                  </div>
-
-                  <div className="pass-meta-item">
                     <span className="pass-meta-label">DATE & CHECK-IN:</span>
                     <span className="pass-meta-val">{EVENT_CONFIG.eventDate} @ 17:00</span>
                   </div>

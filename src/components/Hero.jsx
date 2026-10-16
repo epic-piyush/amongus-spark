@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, MapPin, Users, ArrowRight, ShieldAlert, Compass } from 'lucide-react';
+import { Calendar, Users, ArrowRight, ShieldAlert, Compass } from 'lucide-react';
 import { EVENT_CONFIG } from '../data/eventConfig';
 import { CrewmateIllustration } from './CrewmateIllustration';
 
@@ -124,12 +124,12 @@ export const Hero = ({ onOpenRegister }) => {
 
             <div className="meta-card">
               <div className="meta-icon-box">
-                <MapPin size={18} className="meta-icon icon-blue" aria-hidden="true" />
+                <ShieldAlert size={18} className="meta-icon icon-blue" aria-hidden="true" />
               </div>
               <div className="meta-info">
-                <span className="meta-label">LOCATION</span>
-                <span className="meta-value">{EVENT_CONFIG.venue}</span>
-                <span className="meta-sub">{EVENT_CONFIG.venueNote}</span>
+                <span className="meta-label">MISSION FORMAT</span>
+                <span className="meta-value">Squads of 8–10</span>
+                <span className="meta-sub">Live Tasks & Deliberation</span>
               </div>
             </div>
 

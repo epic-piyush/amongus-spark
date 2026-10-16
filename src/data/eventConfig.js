@@ -16,12 +16,10 @@ export const EVENT_CONFIG = {
   statusLabel: "CREW RECRUITMENT ACTIVE // SECTOR-07",
   alertLevel: "DEFCON 2 — SUB-LIGHT TRAJECTORY",
 
-  // Dates & Venue (Placeholders for organizers)
+  // Dates & Logistics
   eventDate: "Friday, November 14, 2026",
   eventTime: "5:30 PM – 9:30 PM (IST)",
   eventIsoDate: "2026-11-14T17:30:00+05:30",
-  venue: "Central Campus Quad & Science Atrium",
-  venueNote: "Check-in at Ground Level Terminal B (Sector 7)",
   expectedAttendance: "120 Recruits Max",
   admission: "Free for verified students (College ID required)",
 
@@ -106,15 +104,13 @@ export const EVENT_CONFIG = {
       time: "17:00 – 17:30",
       phase: "PHASE 00",
       title: "Crewmate Arrival & Terminal Check-in",
-      location: "Sector 7 Main Atrium",
-      description: "Receive your color visor lanyard, classified role card, and campus sector map.",
+      description: "Receive your color visor lanyard, classified role card, and event briefing dossier.",
       badge: "Pre-Flight"
     },
     {
       time: "17:30 – 18:00",
       phase: "PHASE 01",
       title: "Captains' Briefing & Station Walkthrough",
-      location: "Auditorium Hall Alpha",
       description: "Full audio-visual briefing explaining safety protocol, referee roles, and task mechanics.",
       badge: "Briefing"
     },
@@ -122,7 +118,6 @@ export const EVENT_CONFIG = {
       time: "18:00 – 19:15",
       phase: "PHASE 02",
       title: "Campus Sabotage — Wave 1 & 2",
-      location: "Science Block & Library Concourse",
       description: "Crewmates disperse to complete physical tasks. Impostors execute stealth sabotages.",
       badge: "Active Mission"
     },
@@ -130,7 +125,6 @@ export const EVENT_CONFIG = {
       time: "19:15 – 20:15",
       phase: "PHASE 03",
       title: "The Great Deliberation & Emergency Votes",
-      location: "Central Amphitheater",
       description: "Emergency alarms echo. Squads assemble to review claims, dispute accusations, and vote.",
       badge: "High Alert"
     },
@@ -138,7 +132,6 @@ export const EVENT_CONFIG = {
       time: "20:15 – 21:00",
       phase: "PHASE 04",
       title: "Reactor Core Meltdown Final Stand",
-      location: "Engineering Quadrangle",
       description: "The remaining crewmates must coordinate simultaneous manual stabilization overrides.",
       badge: "Climax"
     },
@@ -146,7 +139,6 @@ export const EVENT_CONFIG = {
       time: "21:00 – 21:30",
       phase: "PHASE 05",
       title: "Mission Debrief, Ejection Reveal & Prizes",
-      location: "Sector 7 Main Atrium",
       description: "Impostors unmasked! Best sleuth, highest task completion, and survival awards presented.",
       badge: "Closing"
     }

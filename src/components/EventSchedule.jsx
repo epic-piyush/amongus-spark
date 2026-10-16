@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, MapPin, CalendarClock, AlertCircle } from 'lucide-react';
+import { Clock, CalendarClock, AlertCircle } from 'lucide-react';
 import { EVENT_CONFIG } from '../data/eventConfig';
 
 export const EventSchedule = () => {
@@ -21,8 +21,8 @@ export const EventSchedule = () => {
           <div className="schedule-notice-banner" role="note">
             <AlertCircle size={16} className="notice-icon" aria-hidden="true" />
             <span>
-              <strong>Organizer Note:</strong> All timestamps and sector rooms listed below are
-              provisional placeholders for club faculty coordination and permit approval.
+              <strong>Organizer Note:</strong> All timestamps and mission phases listed below are
+              provisional placeholders for club faculty coordination and approval.
             </span>
           </div>
         </div>
@@ -55,11 +55,6 @@ export const EventSchedule = () => {
 
                 <h3 className="node-title">{item.title}</h3>
                 <p className="node-desc">{item.description}</p>
-
-                <div className="node-location-footer">
-                  <MapPin size={14} className="node-pin-icon" aria-hidden="true" />
-                  <span className="location-name">{item.location}</span>
-                </div>
               </div>
             </div>
           ))}

@@ -2,25 +2,327 @@
    THE LAST CREWMATE — COMPLETE COMPONENT STYLES
    ========================================================================== */
 
-/* App Root & Starfield Canvas */
-.space-app-root {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--bg-space);
-  color: var(--text-main);
-  overflow-x: hidden;
+/* ==========================================================================
+   SPACESHIP OBSERVATION DECK VIEWPORT BACKGROUND
+   ========================================================================== */
+.spaceship-viewport-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
 }
 
 .space-starfield-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+}
+
+/* Looming Planet in Space */
+.viewport-planet-system {
+  position: absolute;
+  top: 8%;
+  right: 6%;
+  width: 320px;
+  height: 320px;
   pointer-events: none;
-  z-index: 0;
+  opacity: 0.88;
+  filter: drop-shadow(0 0 50px rgba(103, 201, 245, 0.35));
+}
+
+.viewport-planet-body {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 60px auto;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #4D3DA8 0%, #2A2166 45%, #101032 80%, #060914 100%);
+  box-shadow:
+    inset -18px -18px 35px rgba(0, 0, 0, 0.95),
+    inset 10px 10px 25px rgba(103, 201, 245, 0.45),
+    0 0 60px rgba(103, 201, 245, 0.25);
+}
+
+.planet-atmosphere-glow {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, rgba(103, 201, 245, 0.5) 0%, rgba(178, 107, 244, 0.25) 45%, transparent 70%);
+}
+
+.planet-crescent-shadow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 80% 80%, rgba(5, 7, 16, 0.95) 0%, rgba(5, 7, 16, 0.6) 50%, transparent 80%);
+}
+
+.planet-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 360px;
+  height: 90px;
+  transform: translate(-50%, -50%) rotate(-24deg);
+  border: 14px solid rgba(255, 209, 102, 0.28);
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(255, 209, 102, 0.2), inset 0 0 15px rgba(103, 201, 245, 0.3);
+  pointer-events: none;
+}
+
+/* Cockpit Window Reinforced Glass Glare */
+.cockpit-glass-glare {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(103, 201, 245, 0.015) 20%,
+    transparent 45%,
+    rgba(255, 255, 255, 0.02) 75%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Holographic Tactical Flight HUD Overlaid on Viewport Glass */
+.cockpit-hud-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  font-family: var(--font-mono);
+  color: rgba(103, 201, 245, 0.32);
+}
+
+.hud-crosshair-center {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  opacity: 0.45;
+}
+
+.reticle-circle {
+  position: absolute;
+  inset: 16px;
+  border: 1px dashed rgba(103, 201, 245, 0.4);
+  border-radius: 50%;
+}
+
+.reticle-line.horiz {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(103, 201, 245, 0.6) 20%, rgba(103, 201, 245, 0.6) 80%, transparent);
+}
+
+.reticle-line.vert {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(103, 201, 245, 0.6) 20%, rgba(103, 201, 245, 0.6) 80%, transparent);
+}
+
+.hud-telemetry-corner {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+}
+
+.hud-telemetry-corner.top-left {
+  top: 60px;
+  left: 45px;
+}
+
+.hud-telemetry-corner.top-right {
+  top: 60px;
+  right: 45px;
+  text-align: right;
+}
+
+.hud-code {
+  color: rgba(103, 201, 245, 0.4);
+}
+
+.hud-pitch-ladder {
+  position: absolute;
+  top: 50%;
+  left: 48px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  font-size: 0.62rem;
+  opacity: 0.35;
+}
+
+.pitch-bar.primary {
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+/* Observation Deck Bulkheads & Titanium Window Frame */
+.cockpit-bulkhead-frame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.bulkhead-canopy-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 38px;
+  background: linear-gradient(180deg, #050811 0%, #10162A 70%, #17213C 100%);
+  border-bottom: 2px solid rgba(103, 201, 245, 0.3);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.75);
+}
+
+.bulkhead-seam-line {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.bulkhead-rivets-row {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 8px;
+}
+
+.bulkhead-rivets-row span {
+  width: 4px;
+  height: 4px;
+  background: #253354;
+  border-radius: 50%;
+  box-shadow: inset 1px 1px 1px #050811;
+}
+
+/* Left & Right Angled Struts */
+.bulkhead-strut {
+  position: absolute;
+  top: 38px;
+  bottom: 28px;
+  width: 28px;
+  background: linear-gradient(90deg, #080C1A 0%, #18223C 50%, #0A0F21 100%);
+  border-left: 1px solid rgba(103, 201, 245, 0.18);
+  border-right: 1px solid rgba(103, 201, 245, 0.18);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.bulkhead-strut.strut-left {
+  left: 0;
+}
+
+.bulkhead-strut.strut-right {
+  right: 0;
+}
+
+.strut-indicator-led {
+  position: absolute;
+  top: 24%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+.strut-indicator-led.led-green {
+  background: var(--accent-green);
+  box-shadow: 0 0 10px var(--accent-green);
+}
+
+.strut-indicator-led.led-red {
+  background: var(--accent-red);
+  box-shadow: 0 0 10px var(--accent-red);
+}
+
+/* Cockpit Lower Dashboard & Pilot Console */
+.cockpit-lower-dashboard {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: linear-gradient(0deg, #04060E 0%, #0D1326 70%, #151D36 100%);
+  border-top: 2px solid rgba(103, 201, 245, 0.28);
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 2;
+}
+
+.dashboard-panel-controls {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dash-led-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dash-led-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.dash-led-dot.green { background: #58F486; box-shadow: 0 0 6px #58F486; }
+.dash-led-dot.amber { background: #FFD166; box-shadow: 0 0 6px #FFD166; }
+.dash-led-dot.blue { background: #67C9F5; box-shadow: 0 0 6px #67C9F5; }
+
+.dashboard-callsign {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: rgba(155, 165, 190, 0.6);
+  letter-spacing: 0.12em;
+}
+
+.dash-radar-sweep-mini {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(103, 201, 245, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.dash-radar-sweep-mini .sweep-beam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(45deg, var(--accent-green), transparent);
+  transform-origin: 0 0;
+  animation: radarSpin 2.5s linear infinite;
+}
+
+@keyframes radarSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .main-content-flow {
@@ -2265,7 +2567,7 @@
 }
 
 /* ==========================================================================
-   10. RESPONSIVE BREAKPOINTS
+   10. RESPONSIVE BREAKPOINTS & MOBILE OPTIMIZATIONS
    ========================================================================== */
 @media (max-width: 1024px) {
   .hero-container {
@@ -2308,6 +2610,11 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .airlock-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
   .footer-middle-grid {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
@@ -2327,12 +2634,59 @@
     display: block;
   }
 
+  /* Viewport frame adjustment on tablet */
+  .bulkhead-strut {
+    width: 16px;
+  }
+
+  .viewport-planet-system {
+    width: 240px;
+    height: 240px;
+    right: -10px;
+    top: 6%;
+    opacity: 0.7;
+  }
+
+  .viewport-planet-body {
+    width: 150px;
+    height: 150px;
+  }
+
+  .planet-rings {
+    width: 270px;
+    height: 70px;
+  }
+
+  .hud-telemetry-corner {
+    display: none;
+  }
+
+  .hud-pitch-ladder {
+    display: none;
+  }
+
   .section-container {
     padding: 3.5rem 1.25rem;
   }
 
   .section-title {
     font-size: 2rem;
+  }
+
+  .bar-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .bar-controls-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .emergency-trigger-btn {
+    flex: 1;
+    justify-content: center;
   }
 
   .terminal-format-grid {
@@ -2347,6 +2701,7 @@
   .pass-content-grid {
     grid-template-columns: 1fr;
     text-align: center;
+    padding: 1.25rem;
   }
 
   .pass-meta-item {
@@ -2382,40 +2737,231 @@
 
   .footer-middle-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .modal-backdrop-overlay {
+    padding: 0.75rem;
+  }
+
+  .modal-container-panel {
+    max-width: 100%;
+    max-height: 94vh;
+  }
+
+  .modal-inner-scroll {
+    padding: 1.5rem 1.25rem;
   }
 }
 
 @media (max-width: 480px) {
+  .hero-section {
+    padding: 3rem 1rem 2.5rem;
+  }
+
   .hero-headline {
-    font-size: 2.6rem;
+    font-size: clamp(2.3rem, 10vw, 3.2rem);
+    line-height: 1.05;
+  }
+
+  .hero-subhead {
+    font-size: 1.15rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
   }
 
   .hero-actions {
     flex-direction: column;
     width: 100%;
+    gap: 0.75rem;
   }
 
   .hero-actions .btn {
     width: 100%;
+    padding: 0.9rem 1.25rem;
+  }
+
+  .hero-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tactical-hud-frame {
+    padding: 1.15rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .countdown-digits-row {
+    gap: 0.25rem;
+  }
+
+  .countdown-digit-cell {
+    min-width: 38px;
+  }
+
+  .digit-num {
+    font-size: 1.15rem;
+  }
+
+  .digit-unit {
+    font-size: 0.55rem;
+  }
+
+  .digit-separator {
+    font-size: 1rem;
   }
 
   .briefing-highlights-grid {
     grid-template-columns: 1fr;
   }
 
+  .terminal-body {
+    padding: 1.4rem 1.2rem;
+  }
+
+  .terminal-narrative {
+    font-size: 1rem;
+  }
+
+  .mission-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .timeline-track-line {
+    left: 15px;
+  }
+
+  .node-marker-circle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .marker-index {
+    font-size: 0.85rem;
+  }
+
+  .timeline-node {
+    gap: 0.75rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .node-card {
+    padding: 1rem 1.15rem;
+  }
+
+  .node-title {
+    font-size: 1.1rem;
+  }
+
+  .node-desc {
+    font-size: 0.86rem;
+  }
+
+  .rules-faq-wrapper {
+    padding: 1.25rem 1rem;
+  }
+
+  .faq-question-btn {
+    padding: 0.85rem 1rem;
+    font-size: 0.92rem;
+  }
+
+  .airlock-body {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .airlock-action-box {
+    padding: 1.25rem 1rem;
+  }
+
+  .airlock-stats-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.58rem;
+  }
+
+  .stat-val {
+    font-size: 0.92rem;
+  }
+
+  .modal-backdrop-overlay {
+    padding: 0.4rem;
+  }
+
+  .modal-container-panel {
+    max-height: 96vh;
+    border-radius: var(--radius-sm);
+  }
+
+  .modal-terminal-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .modal-inner-scroll {
+    padding: 1.25rem 0.9rem;
+  }
+
+  .modal-title {
+    font-size: 1.4rem;
+  }
+
+  .form-input,
+  .form-select {
+    font-size: 16px; /* Prevents auto-zoom on mobile safari */
+    padding: 0.7rem 0.85rem;
+  }
+
+  .radio-pill-group {
+    flex-direction: column;
+  }
+
+  .pass-btn-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.6rem;
+  }
+
+  .pass-btn-group .btn {
+    width: 100%;
+  }
+
+  .footer-section {
+    padding: 3rem 1rem 1.5rem;
+  }
+
+  .footer-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-headline {
+    font-size: 2.1rem;
+  }
+
   .countdown-digits-row {
-    gap: 0.3rem;
+    gap: 0.15rem;
+  }
+
+  .countdown-digit-cell {
+    min-width: 32px;
   }
 
   .digit-num {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
-  .terminal-inner-content {
-    padding: 1.25rem;
+  .digit-unit {
+    font-size: 0.5rem;
   }
 
-  .pass-content-grid {
-    padding: 1.25rem;
+  .section-title {
+    font-size: 1.7rem;
   }
 }
